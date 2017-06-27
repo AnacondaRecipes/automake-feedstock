@@ -1,4 +1,4 @@
-{% set version = "1.15" %}
+{% set version = "1.15.1" %}
 
 package:
   name: automake
@@ -6,10 +6,10 @@ package:
 
 source:
   url: http://ftp.gnu.org/gnu/automake/automake-{{ version }}.tar.gz
-  sha256: 7946e945a96e28152ba5a6beb0625ca715c6e32ac55f2e353ef54def0c8ed924
+  sha256: 988e32527abe052307d21c8ca000aa238b914df363a617e38f4fb89f5abf6260
 
 build:
-  number: 1
+  number: 0
   skip: True  # [win]
 
 requirements:
@@ -35,3 +35,4 @@ extra:
   recipe-maintainers:
     - jakirkham
     - ocefpaf
+    - mingwandroid
