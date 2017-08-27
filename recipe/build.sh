@@ -8,6 +8,6 @@ for f in bin/aclocal.in bin/automake.in; do
 done
 
 ./configure --prefix=$PREFIX
-make
+make -j${CPU_COUNT} ${VERBOSE_AT}
 # make check TODO: There is one failure I need to check.
 make install
