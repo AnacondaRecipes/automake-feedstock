@@ -1,27 +1,30 @@
-{% set version = "1.16.2" %}
+{% set name = "automake" %}
+{% set version = "1.16.5" %}
+{% set checksum = "07bd24ad08a64bc17250ce09ec56e921d6343903943e99ccf63bbf0705e34605" %}
+{% set build = "0" %}
 
 package:
-  name: automake
+  name: {{ name }}
   version: {{ version }}
 
 source:
   url: http://ftp.gnu.org/gnu/automake/automake-{{ version }}.tar.gz
-  sha256: b2f361094b410b4acbf4efba7337bdb786335ca09eb2518635a09fb7319ca5c1
+  sha256: {{ checksum }}
 
 build:
-  number: 0
+  number: {{ build }}
   skip: true  # [win]
 
 requirements:
   host:
     - m4
     - autoconf
-    - perl
+    - perl 5.*
     - make
   run:
     - m4
     - autoconf
-    - perl
+    - perl 5.*
 
 test:
   commands:
