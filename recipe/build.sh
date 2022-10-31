@@ -1,13 +1,6 @@
 #!/bin/sh
 
-
-#current# Fix shebangs
-#for f in bin/aclocal.in bin/automake.in; do
-#    sed -i.bak -e 's|^#!@PERL@ -w|#!/usr/bin/env perl|' "$f"
-#    rm -f "$f.bak"
-#done
-
-#new# Fix shebangs
+#Fix shebangs
 for f in bin/aclocal.in bin/automake.in; do
     sed -i.bak -e '
 1c\
