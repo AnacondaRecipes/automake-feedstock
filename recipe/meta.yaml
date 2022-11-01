@@ -16,6 +16,8 @@ build:
   skip: true  # [win]
 
 requirements:
+  build:
+    - make
   host:
     - m4
     - autoconf
