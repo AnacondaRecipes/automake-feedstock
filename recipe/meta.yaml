@@ -1,35 +1,44 @@
-{% set version = "1.16.2" %}
+{% set name = "automake" %}
+{% set version = "1.16.5" %}
+{% set checksum = "07bd24ad08a64bc17250ce09ec56e921d6343903943e99ccf63bbf0705e34605" %}
+{% set build = "0" %}
 
 package:
-  name: automake
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: http://ftp.gnu.org/gnu/automake/automake-{{ version }}.tar.gz
-  sha256: b2f361094b410b4acbf4efba7337bdb786335ca09eb2518635a09fb7319ca5c1
+  url: https://ftp.gnu.org/gnu/automake/automake-{{ version }}.tar.gz
+  sha256: {{ checksum }}
 
 build:
-  number: 0
+  number: {{ build }}
   skip: true  # [win]
+#conda-forge does this, but it builds fine without it and we don't see evidence why it's necessary
+#  ignore_run_exports_from:
+#    - perl 5.*
 
 requirements:
+  build:
+    - make
   host:
     - m4
     - autoconf
-    - perl
+    - perl 5.*
     - make
   run:
     - m4
     - autoconf
-    - perl
+    - perl 5.*
 
 test:
   commands:
     - automake --help
 
 about:
-  home: http://www.gnu.org/software/automake/
-  license: GPL 3
+  home: https://www.gnu.org/software/automake/
+  license: GPL-2.0-or-later
+  license_family: GPL
   license_file: COPYING
   summary: Tool for automatically generating Makefile.in files compliant with the GNU Coding Standards.
   description: |
@@ -38,7 +47,7 @@ about:
     certain restrictions on the configure.ac contents.
   dev_url: https://git.savannah.gnu.org/git/automake.git
   doc_url: https://www.gnu.org/software/automake/manual/automake.html
-  doc_source_url: http://git.savannah.gnu.org/cgit/automake.git/tree/doc
+  doc_source_url: https://git.savannah.gnu.org/cgit/automake.git/tree/doc
 
 extra:
   recipe-maintainers:
