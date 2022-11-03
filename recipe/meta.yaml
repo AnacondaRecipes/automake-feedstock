@@ -24,12 +24,12 @@ requirements:
   host:
     - m4
     - autoconf
-    - perl 5
+    - perl 5.*
     - make
   run:
     - m4
     - autoconf
-    - perl 5
+    - perl 5.*
 
 test:
   commands:
