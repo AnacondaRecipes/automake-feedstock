@@ -14,7 +14,7 @@ source:
 build:
   number: {{ build }}
   skip: true  # [win]
-# conda-forge does this, but it builds fine without it and we don't see evidence why it's necessary
+# gives an error because of the asterisk in the version pins without this, most likely because we pin perl in cbc.yaml:
   ignore_run_exports_from:
     - perl 5.*
 
