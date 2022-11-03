@@ -14,9 +14,9 @@ source:
 build:
   number: {{ build }}
   skip: true  # [win]
-#conda-forge does this, but it builds fine without it and we don't see evidence why it's necessary
-#  ignore_run_exports_from:
-#    - perl 5.*
+# conda-forge does this, but it builds fine without it and we don't see evidence why it's necessary
+  ignore_run_exports_from:
+    - perl 5.*
 
 requirements:
   build:
