@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -xe
+
 # Fix shebangs
 for f in bin/aclocal.in bin/automake.in; do
     sed -i.bak -e '
