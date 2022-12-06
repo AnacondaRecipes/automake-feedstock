@@ -1,7 +1,7 @@
 {% set name = "automake" %}
 {% set version = "1.16.5" %}
 {% set checksum = "07bd24ad08a64bc17250ce09ec56e921d6343903943e99ccf63bbf0705e34605" %}
-{% set build = "0" %}
+{% set build = "1" %}
 
 package:
   name: {{ name }}
@@ -13,8 +13,8 @@ source:
 
 build:
   number: {{ build }}
-  skip: true  # [win]
-# gives an error because of the asterisk in the version pins without this, most likely because we pin perl in cbc.yaml:
+  skip: True  # [win]
+  # gives an error because of the asterisk in the version pins without this, most likely because we pin perl in cbc.yaml:
   ignore_run_exports_from:
     - perl 5.*
 
@@ -33,6 +33,7 @@ requirements:
 
 test:
   commands:
+    - automake --version
     - automake --help
 
 about:
@@ -45,9 +46,8 @@ about:
     Automake is a tool for automatically generating Makefile.ins from files
     called Makefile.am.  It assumes that the project uses Autoconf and enforces
     certain restrictions on the configure.ac contents.
-  dev_url: https://git.savannah.gnu.org/git/automake.git
+  dev_url: https://git.savannah.gnu.org/cgit/automake.git
   doc_url: https://www.gnu.org/software/automake/manual/automake.html
-  doc_source_url: https://git.savannah.gnu.org/cgit/automake.git/tree/doc
 
 extra:
   recipe-maintainers:
